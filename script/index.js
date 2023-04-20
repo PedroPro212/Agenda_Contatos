@@ -1,7 +1,6 @@
 function Encolher(){
     var div_menu = document.querySelector('#menu');
     var conteudo = document.querySelector('#conteudo');
-    var icon_menu = document.querySelector('#icon_menu');
 
     if(div_menu.style.display === 'none'){
         div_menu.style.display = 'block';

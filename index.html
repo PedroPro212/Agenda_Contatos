@@ -7,6 +7,7 @@
     <title>Contatos</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="/style/index.css" type="text/css" rel="stylesheet">
+    <link href="/style/new.css" type="text/css" rel="stylesheet">
 </head>
 <body>
     <header>            
@@ -14,7 +15,7 @@
             <h1><img src="/imgs/menu.svg" class="menu" id="icon_menu" alt="Menu" onclick="Encolher()"><img src="/imgs/user.svg" alt="Usuário"> Contatos</h1>
             <div class="pesquisa">
                 <img src="/imgs/pesquisa.svg">
-                <input type="text" placeholder="Pesquisa">
+                <input type="text" class="text_pesquisa" placeholder="Pesquisa">
             </div>
         </div>
     </header>
@@ -23,7 +24,7 @@
         <div class="row">
             
             <header class="menu col-sm-3" id="menu">
-                <a><button>
+                <a><button id="new" onclick="New()">
                     <img src="/imgs/mais.svg" alt="+"> Criar contato
                 </button></a><br>
                 <div class="opcoes">
@@ -32,14 +33,35 @@
             </header>
 
             <main class="col-sm-8" id="conteudo">
-                <section>
+                <section id="contatos">
                     ssds
+                </section>
+
+                <section id="criar">
+                    <a><button class="cancelar" onclick="Cancelar()">
+                        X
+                    </button></a>
+                    <form method="post" action="/php/new.php">
+                        
+                        <label for="imagem" class="imagem">
+                            <img src="/imgs/imagem.svg" class="icon_img" width="35">
+                            <input type="file" class="new" name="imagem" id="imagem" required style="display: none;">
+                        </label><br>
+                        <input type="text" class="new" name="nome" id="nome" placeholder="Nome" required><br>
+                        <input type="text" class="new" name="sobrenome" id="sobrenome" placeholder="Sobrenome" required><br>
+                        <input type="email" class="new" name="email" id="email" placeholder="Email" required><br>
+                        <input type="tel" class="new" name="tel" id="tel" placeholder="Telefone" required><br>
+                        <input type="date" class="new" name="date" id="date" required><br>
+
+                        <input type="submit" id="salvar" value="Salvar">
+                    </form>
                 </section>
             </main>
         </div>
     </div>
 
     <script src="/script/index.js"></script>
+    <script src="/script/new.js"></script>
 
 </body>
 </html>
