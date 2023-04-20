@@ -43,12 +43,14 @@
                     </button></a>
                     <form method="post" action="/php/new.php">
                         
-                        <label for="imagem" class="imagem">
+                        <label for="imagem" class="imagem" onclick="Image()">
                             <img src="/imgs/imagem.svg" class="icon_img" width="35">
-                            <input type="file" class="new" name="imagem" id="imagem" required style="display: none;">
-                        </label><br>
-                        <input type="text" class="new" name="nome" id="nome" placeholder="Nome" required><br>
-                        <input type="text" class="new" name="sobrenome" id="sobrenome" placeholder="Sobrenome" required><br>
+                            <input type="file" class="new" name="imagem" id="imagem" accept=".jpg,.png,.jpeg" required style="display: none;">
+                        </label>
+                        <label id="nome-completo"></label>
+                        <br>
+                        <input type="text" class="new" name="nome" id="nome" placeholder="Nome" onchange="Nome()" required><br>
+                        <input type="text" class="new" name="sobrenome" id="sobrenome" placeholder="Sobrenome" onchange="Nome()" required><br>
                         <input type="email" class="new" name="email" id="email" placeholder="Email" required><br>
                         <input type="tel" class="new" name="tel" id="tel" placeholder="Telefone" required><br>
                         <input type="date" class="new" name="date" id="date" required><br>
