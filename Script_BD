@@ -2,7 +2,7 @@ CREATE DATABASE Agenda;
 USE Agenda;
 
 CREATE TABLE contato(
-	id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
     nome varchar(200),
     email varchar(100),
     tel varchar(14),
