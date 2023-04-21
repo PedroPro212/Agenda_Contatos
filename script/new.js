@@ -17,6 +17,7 @@ function Cancelar(){
     criar.style.display = 'none';
 }
 
+// Mostrar imagem selecionada
 function Image(){
     const inputImagem = document.getElementById("imagem");
     const labelImagem = document.querySelector(".imagem");
@@ -37,6 +38,7 @@ function Image(){
     });
 }
 
+// Mostrar nome em tempo real
 function Nome(){
     var completo = document.querySelector('#nome-completo');
     var nome = document.querySelector('#nome').value;
