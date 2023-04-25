@@ -46,4 +46,3 @@ function Nome(){
 
     completo.textContent = nome + ' ' + sobrenome;
 }
-
