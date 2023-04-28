@@ -9,4 +9,5 @@ Aprender e desenvolver a minha versão do Google Contatos
 - CSS3
 - Bootstrap
 - JavaScript
+- PHP
 - MySql
