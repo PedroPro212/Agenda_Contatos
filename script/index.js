@@ -14,3 +14,7 @@ function Encolher(){
     }
 
 }
+
+function Update(){
+    
+}

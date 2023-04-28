@@ -45,3 +45,10 @@ input[type="submit"]{
     height: 2rem;
     box-shadow: none;
 }
+
+#editar{
+    cursor: pointer;
+}
+    #editar:hover{
+        cursor: pointer;   
+    }
