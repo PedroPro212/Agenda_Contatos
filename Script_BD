@@ -3,7 +3,7 @@ USE Agenda;
 
 CREATE TABLE contato(
     id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    foto BLOB,
+    foto LONGBLOB,
     nome varchar(200),
     email varchar(100),
     tel varchar(14),
