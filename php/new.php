@@ -6,7 +6,7 @@
     $conn = new Conn;
     $create = new Create;
 
-    $foto = $_POST['imagem'];
+
     $nome = $_POST['nome'];
     $sobrenome = $_POST['sobrenome'];
     $email = $_POST['email'];
@@ -14,10 +14,29 @@
     $aniversario = $_POST['date'];
     $completo = $nome . ' ' . $sobrenome;
 
-    $query = $create->create($foto, $completo, $email, $tel, $aniversario);
-    $insert = mysqli_query($conn->conn(), $query) or die("Erro ao cadastrar");
-    echo "<script language='javascript' type='text/javascript'>
-    alert('Contato cadastrado com sucesso'); window.location.href='../index.html'
-    </script>";
+    // Verifique se um arquivo foi enviado
+    if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
+        $imagemTmp = $_FILES['imagem']['tmp_name'];
+        $conteudoFoto = file_get_contents($imagemTmp);
+    } else {
+        $conteudoFoto = null; 
+    }
+
+    $mysqli = new mysqli('127.0.0.1', 'root', '1234', 'Agenda');
+
+    $stmt = $mysqli->prepare($create->create($conteudoFoto, $completo, $email, $tel, $aniversario));
+
+    $stmt->bind_param('sssss', $conteudoFoto, $completo, $email, $tel, $aniversario);
+
+    $stmt->execute();
+
+    if($stmt->affected_rows > 0){
+        echo "<script language='javascript' type='text/javascript'>
+        alert('Contato cadastrado com sucesso'); window.location.href='../index.html'
+        </script>";
+    }
+
+    //$query = $create->create($foto, $completo, $email, $tel, $aniversario);
+    //$insert = mysqli_query($conn->conn(), $query) or die("Erro ao cadastrar");
 
 ?>

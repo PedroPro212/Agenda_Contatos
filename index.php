@@ -93,7 +93,7 @@
                     <a><button class="cancelar" onclick="Cancelar()">
                         X
                     </button></a>
-                    <form method="post" action="php/new.php">
+                    <form method="post" action="php/new.php" enctype="multipart/form-data">
                         
                         <label for="imagem" class="imagem" onclick="Image()">
                             <img src="imgs/imagem.svg" class="icon_img" width="35">
