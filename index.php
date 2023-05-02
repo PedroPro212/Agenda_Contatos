@@ -51,6 +51,34 @@
 
                 ?>
 
+                <script>
+                    // Função JavaScript para abrir modal apagar contato
+                    function Deletar(){
+                        var div = document.querySelector('#modal');
+                        var fade = document.querySelector('#fade');
+
+                        if(div.style.display === 'none'){
+                            div.style.display = 'block';
+                            fade.style.display = 'block';
+                        }else{
+                            div.style.display = 'none';
+                            fade.style.display = 'none';
+                        }
+
+                        console.log('teste');
+                    }
+
+                    function CancelarExcluir(){
+                        var div = document.querySelector('#modal');
+                        var fade = document.querySelector('#fade');
+
+                        if(div.style.display === 'block'){
+                            div.style.display = 'none';
+                            fade.style.display = 'none';
+                        }
+                    }
+                </script>
+
                     <table>
                         <thead>
                             <tr>
@@ -76,9 +104,9 @@
                                         echo "<td>" . $row["tel"] . "</td>";
                                         echo "<td>" . date("d/m/Y", strtotime($row["aniversario"])) . "</td>";
                                         echo "<td><a href='view/update.php?id=" . $row['id'] . "'><img src='imgs/editar.svg' width='20' style='cursor: pointer'></a></td>";
-                                        echo "<td><a></a><img src='imgs/deletar.svg' id='excluir' width='20'></td>";
+                                        echo "<td><a></a><img src='imgs/deletar.svg' id='excluir' width='20' style='cursor: pointer' onclick='Deletar()'></td>";
                                         echo "</tr>";
-                                    }
+                                    } 
                                     $conn->conn()->close();
                                 }else{
                                     echo "<tr><td colspan='5'>Nenhum registro encontrado.</td></tr>";
@@ -88,6 +116,41 @@
                     </table>
 
                 </section>
+
+                <style>
+                    #fade{
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgba(0, 0, 0, 0.6);
+                        z-index: 5;
+                    }
+
+                    #modal{
+                        position: fixed;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%, -50%);
+                        background-color: #fff;
+                        z-index: 10;
+                        padding: 1.2rem;
+                        border-radius: 0.5rem;
+                    }
+
+                    #modal.hide,
+                    #fade.hide{
+                        display: none;
+                    }
+                </style>
+
+                <div id="fade" style="display: none">></div>
+                <div id="modal" style="display: none">
+                    <h3>Deseja apagar esse contato?</h3>
+                    <button>Sim</button>
+                    <button onclick="CancelarExcluir()">Cancelar</button>
+                </div>
 
                 <section id="criar">
                     <a><button class="cancelar" onclick="Cancelar()">
