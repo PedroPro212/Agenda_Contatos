@@ -32,7 +32,7 @@
 
     if($stmt->affected_rows > 0){
         echo "<script language='javascript' type='text/javascript'>
-        alert('Contato cadastrado com sucesso'); window.location.href='../index.html'
+        alert('Contato cadastrado com sucesso'); window.location.href='../index.php'
         </script>";
     }
 
