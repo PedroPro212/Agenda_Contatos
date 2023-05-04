@@ -14,7 +14,3 @@ function Encolher(){
     }
 
 }
-
-function Update(){
-    
-}

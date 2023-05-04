@@ -46,6 +46,7 @@
 
                     if(mysqli_num_rows($result) > 0){
                         $row = mysqli_fetch_assoc($result);
+                        $foto = $row['foto'];
                         $nome = $row['nome'];
                         $email = $row['email'];
                         $tel = $row['tel'];
@@ -64,11 +65,22 @@
             <div class="col-sm-8" id="conteudo">
                 <section>
                     <form action="../php/update.php" method="post">
-                        <input type="hidden" name="id" value="<?php echo $id; ?>"><br>
-                        <input type="text" name="nome" value="<?php echo $nome; ?>"><br>
-                        <input type="email" name="email" value="<?php echo $email; ?>"><br>
-                        <input type="tel" name="tel" value="<?php echo $tel; ?>"><br>
-                        <input type="date" name="aniversario" value="<?php echo $aniversario; ?>"><br>
+                        <label for="imagem" class="imagem" onclick="Image()">
+                            <?php
+                                if(!empty($foto)){
+                                    echo '<img src="data:image/png;base64,' . base64_encode($foto) . '" class="icon_img" width="50">';
+                                    //echo $row['foto'];
+                                } else {
+                                    echo '<img src="../imgs/imagem.svg" class="icon_img" width="35">';
+                                }
+                            ?>
+                            <input type="file" class="new" name="imagem" id="imagem" accept=".jpg,.png,.jpeg" required style="display: none;">
+                        </label>
+                        <input type="hidden" name="id" id="id" required value="<?php echo $id; ?>"><br>
+                        <input type="text" name="nome" id="nome" required value="<?php echo $nome; ?>"><br>
+                        <input type="email" name="email" id="email" required value="<?php echo $email; ?>"><br>
+                        <input type="tel" name="tel" id="tel" required value="<?php echo $tel; ?>"><br>
+                        <input type="date" name="date" id="date" required value="<?php echo $aniversario; ?>"><br>
 
                         <input type="submit" value="Atualizar">
                     </form>
